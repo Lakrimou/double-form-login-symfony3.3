@@ -1,0 +1,3 @@
+ecomerce_endpoint_homepage:
+    path:     /
+    defaults: { _controller: EcomerceEndpointBundle:Default:index }

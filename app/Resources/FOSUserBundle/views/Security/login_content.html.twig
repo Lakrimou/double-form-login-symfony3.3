@@ -1,0 +1,60 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+<div class="span9">
+    <ul class="breadcrumb">
+        <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+        <li class="active">Login</li>
+    </ul>
+    <h3> Login</h3>
+    <hr class="soft"/>
+
+    <div class="row">
+        <div class="span4">
+            <div class="well">
+                <h5>CREATE YOUR ACCOUNT</h5><br/>
+                Enter your e-mail address to create an account.<br/><br/><br/>
+                <form action="register.html">
+                    <div class="control-group">
+                        <label class="control-label" for="inputEmail0">E-mail address</label>
+                        <div class="controls">
+                            <input class="span3"  type="text" id="inputEmail0" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <button type="submit" class="btn block">Create Your Account</button>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+        <div class="span1"> &nbsp;</div>
+        <div class="span4">
+            <div class="well">
+                <h5>ALREADY REGISTERED ?</h5>
+
+<form action="{{ path("fos_user_security_check") }}" method="post">
+    {% if csrf_token %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    {% endif %}
+
+    <label for="username">{{ 'security.login.username'|trans }}</label>
+    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+
+    <label for="password">{{ 'security.login.password'|trans }}</label>
+    <input type="password" id="password" name="_password" required="required" />
+
+    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+
+    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+</form>
+            </div>
+        </div>
+    </div>
+
+</div>

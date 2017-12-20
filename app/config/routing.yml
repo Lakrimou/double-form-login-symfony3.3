@@ -1,0 +1,36 @@
+ecomerce_user:
+    resource: "@EcomerceUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ecomerce_endpoint:
+    resource: "@EcomerceEndpointBundle/Resources/config/routing.yml"
+    prefix:   /endpoint
+
+ecomerce_frontend:
+    resource: "@EcomerceFrontendBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ecomerce_backend:
+    resource: "@EcomerceBackendBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+# app/config/routing.yml
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+
+admin_login:
+    path:  /admin/login
+    defaults: { _controller: FOSUserBundle:Security:login }
+
+admin_login_check:
+    path:  /admin/login_check
+    defaults: { _controller: FOSUserBundle:Security:check }
+
+admin_logout:
+    path:  /admin/logout
+    defaults: { _controller: FOSUserBundle:Security:logout }

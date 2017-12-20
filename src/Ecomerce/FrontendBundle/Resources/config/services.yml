@@ -1,0 +1,4 @@
+services:
+#    ecomerce_frontend.example:
+#        class: Ecomerce\FrontendBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

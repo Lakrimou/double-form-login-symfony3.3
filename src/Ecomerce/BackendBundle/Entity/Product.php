@@ -1,0 +1,219 @@
+<?php
+
+namespace Ecomerce\BackendBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Product
+ *
+ * @ORM\Table(name="product")
+ * @ORM\Entity(repositoryClass="Ecomerce\BackendBundle\Repository\ProductRepository")
+ */
+class Product
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Nom", type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Description", type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Prix", type="string", length=255)
+     */
+    private $prix;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="Date", type="datetime")
+     */
+    private $date;
+
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Ecomerce\BackendBundle\Entity\Categorie")
+     *
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $category;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Ecomerce\BackendBundle\Entity\Media", cascade={"persist"})
+     */
+    private $media;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Product
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Product
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set prix
+     *
+     * @param string $prix
+     *
+     * @return Product
+     */
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * Get prix
+     *
+     * @return string
+     */
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return Product
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \Ecomerce\BackendBundle\Entity\Categorie $category
+     *
+     * @return Product
+     */
+    public function setCategory(\Ecomerce\BackendBundle\Entity\Categorie $category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \Ecomerce\BackendBundle\Entity\Categorie
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set media
+     *
+     * @param \Ecomerce\BackendBundle\Entity\Media $media
+     *
+     * @return Product
+     */
+    public function setMedia(\Ecomerce\BackendBundle\Entity\Media $media = null)
+    {
+        $this->media = $media;
+
+        return $this;
+    }
+
+    /**
+     * Get media
+     *
+     * @return \Ecomerce\BackendBundle\Entity\Media
+     */
+    public function getMedia()
+    {
+        return $this->media;
+    }
+}

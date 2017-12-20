@@ -1,0 +1,18 @@
+ecomerce_backend_product:
+    resource: "@EcomerceBackendBundle/Resources/config/routing/product.yml"
+    prefix:   /product
+
+ecomerce_backend_categorie:
+    resource: "@EcomerceBackendBundle/Resources/config/routing/categorie.yml"
+    prefix:   /categorie
+
+ecomerce_backend_media:
+    resource: "@EcomerceBackendBundle/Resources/config/routing/media.yml"
+    prefix:   /media
+
+
+
+
+ecomerce_backend_homepage:
+    path:     /test
+    defaults: { _controller: EcomerceBackendBundle:Default:index }
